@@ -6,7 +6,7 @@ if [ ! -e $APP_JSON ];then
     echo "The $APP_JSON does not exist."
     exit 1
 fi
-
+WARNING="<!-- 该文档是模板生成，手动修改的内容会被覆盖，详情参见：https://github.com/quicklyon/doc-toolkit -->"
 APP_NAME="$(jq -r .Name $APP_JSON)"
 APP_HOME="$(jq -r .Home $APP_JSON)"
 APP_GIT_URL="$(jq -r .GitUrl $APP_JSON)"
@@ -22,7 +22,8 @@ SUPPORT_TAGS="$(cat .template/support-tags.md)"
 APP_ENVS="$(cat .template/app-envs.md)"
 MAKE_EXTRA_INFO="$(cat .template/make-extra-info.md)"
 
-export  APP_NAME \
+export  WARNING \
+        APP_NAME \
         APP_HOME \
         APP_GIT_URL \
         APP_DOCKERFILE_GIT_URL \
