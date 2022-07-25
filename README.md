@@ -2,6 +2,29 @@
 
 ## 一、readme.md文档处理
 
+### 1.1 生产readme模板文件
+
+```bash
+docker run --rm -v <应用源码根目录>:/quickon easysoft/doc-toolkit init-readme-template
+```
+
+执行成功会提示: `Initialization completed.`
+
+查看代码根目录是否有 `.template` 目录结构:
+
+```bash
+
+.template
+├── app-desc.md          # 应用基础描述内容
+├── app-envs.md          # 应用环境变量内容
+├── app-extra-info.md    # 应用附加描述内容
+├── app.json             # * 应用基础信息定义
+├── make-extra-info.md   # make命令特殊说明
+├── readme.md.tpl        # * readme.md 主模板文件
+└── support-tags.md      # 应用tag只是说明
+
+```
+
 ### 1.1 根据参数生成标签文档
 
 前提：应用模板目录(.template)必须包含 `support-tags.md` 文件，如果没有则新建。

@@ -1,0 +1,12 @@
+{
+    "Name": "<App>",
+    "Home": "https://app.home.page/",
+    "GitUrl": "https://github.com/organization/app",
+    "DockerfileUrl": "https://github.com/quicklyon/app-docker",
+    "InstallDocUrl": "https://www.qucheng.com/app-install/install-app-<number>.html",
+    "Docker": {
+        "Name": "<app>",
+        "Repo": "https://hub.docker.com/r/easysoft/<app>",
+        "TagUrl": "https://hub.docker.com/r/easysoft/<app>/tags/"
+    }
+}

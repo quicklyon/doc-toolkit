@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [  -e .template ];then
+  echo ".template directory already existed,initialize templates failed."
+  exit 1
+fi
+
+cp -rp /opt/easysoft/templates/readme ./.template && echo "Initialization completed."
