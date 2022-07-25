@@ -23,7 +23,7 @@ docker run --rm -v <应用源码根目录>:/quickon easysoft/doc-toolkit addTag 
 - 如果不存在  `.template/suport-tags.md` 文件，会新建，并添加如下内容：
 
 ```markdown
-- [latest](https://github.com/gogs/gogs/releases/tag/)
+- [latest](https://github.com/gogs/gogs/tags/)
 - [0.12.9](https://github.com/gogs/gogs/releases/tag/v0.12.9)
 ```
 
@@ -51,7 +51,7 @@ docker run --rm -v <应用源码根目录>:/quickon easysoft/doc-toolkit addTag 
 渲染readme.md文件
 
 ```bash
-docker run --rm -v <应用源码根目录>:/quickon easysoft/doc-toolkit render-doc
+docker run --rm -v <应用源码根目录>:/quickon easysoft/doc-toolkit render-readme
 ```
 
 **说明：**

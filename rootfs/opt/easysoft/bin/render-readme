@@ -2,6 +2,11 @@
 
 APP_JSON=.template/app.json
 
+if [ ! -e $APP_JSON ];then
+    echo "The $APP_JSON does not exist."
+    exit 1
+fi
+
 APP_NAME="$(jq -r .Name $APP_JSON)"
 APP_HOME="$(jq -r .Home $APP_JSON)"
 APP_GIT_URL="$(jq -r .GitUrl $APP_JSON)"

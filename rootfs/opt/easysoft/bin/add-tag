@@ -2,10 +2,16 @@
 
 VERSION="${1:-NULL}"
 URL="${2:-NULL}"
+TAGFILE=".template/support-tags.md"
 
 if [ "$VERSION" == "NULL" ] || [  "$URL" == "NULL" ];then
   echo "$0 need version and url. Ex.: $0 \"0.12.9\" \"https://github.com/gogs/gogs/releases/tag/v0.12.9\""
   exit 1
+fi
+
+if [ ! -e $TAGFILE ];then
+  # Only github url are supported
+  echo "- [latest]($(grep -oE "https://[0-9a-zA-Z.]+/\w+/\w+/release" "$URL"))" >> $TAGFILE
 fi
 
 IS_EXISTES=$(grep -c "$VERSION" .template/support-tags.md)
