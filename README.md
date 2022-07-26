@@ -25,7 +25,7 @@ docker run --rm -v <应用源码根目录>:/quickon easysoft/doc-toolkit init-re
 
 ```
 
-### 1.1 根据参数生成标签文档
+### 1.2 根据参数生成标签文档
 
 前提：应用模板目录(.template)必须包含 `support-tags.md` 文件，如果没有则新建。
 
@@ -50,7 +50,7 @@ docker run --rm -v <应用源码根目录>:/quickon easysoft/doc-toolkit addTag 
 - [0.12.9](https://github.com/gogs/gogs/releases/tag/v0.12.9)
 ```
 
-### 1.2 根据模板渲染readme.md文件
+### 1.3 根据模板渲染readme.md文件
 
 前提：应用的模板目录中必须包含并填写完整的 `app.json` 文件，这个是应用说明文档的元数据定义文件。
 
