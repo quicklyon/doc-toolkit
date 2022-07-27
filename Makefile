@@ -14,7 +14,7 @@ push: ## push 镜像到 hub.qucheng.com
 	docker push hub.qucheng.com/platform/$(APP_NAME)
 	
 
-docker-push: ## push 镜像到 hub.docker.com
+push-public: ## push 镜像到 hub.docker.com
 	docker tag hub.qucheng.com/platform/$(APP_NAME):$(BUILD_DATE) easysoft/$(APP_NAME):$(BUILD_DATE)
 	docker tag easysoft/$(APP_NAME):$(BUILD_DATE) easysoft/$(APP_NAME):latest
 	docker push easysoft/$(APP_NAME):$(BUILD_DATE)
