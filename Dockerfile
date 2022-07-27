@@ -9,8 +9,7 @@ ENV OS_ARCH="amd64" \
 COPY prebuildfs /
 
 ENV TZ=Asia/Shanghai \
-    DEBIAN_FRONTEND=noninteractive \
-    PATH=$PATH:/opt/easysoft/bin
+    DEBIAN_FRONTEND=noninteractive
 
 RUN install_packages curl wget zip unzip pwgen apt-transport-https ca-certificates jq
 
@@ -21,6 +20,9 @@ ARG VERSION
 ENV EASYSOFT_APP_NAME="Document-Toolkit $VERSION"
 
 COPY rootfs /
+
+# Copy templates to images
+COPY templates  /templates
 
 WORKDIR /quickon
 

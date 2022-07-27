@@ -1,0 +1,28 @@
+#!/bin/bash
+
+export APP_NAME=$1
+export app_name=$(echo $APP_NAME |tr 'A-Z' 'a-z')
+export OS_NAME=${2:-debian-11}
+
+case $OS_NAME in
+    "debian-11")
+        export IMAGE_OS_NAME="debian:11.4-slim"
+        ;;
+    "alpine")
+        export IMAGE_OS_NAME="alpine:3.15"
+        ;;
+    *)
+        export IMAGE_OS_NAME "<image_os_name>"
+esac
+
+if [ "$APP_NAME" == "" ];then
+    echo "$0 app name and system name must be specified! Ex.: $0 \"gogs\" \"debian-11\""
+    exit 1
+fi
+
+. /opt/easysoft/scripts/liblog.sh
+
+info "Initialize the app.json"
+render-template /templates/app.json.tpl > app.json && info "The initialization is complete. Please modify app.json"
+
+cat app.json 

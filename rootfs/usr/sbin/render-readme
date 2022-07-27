@@ -1,0 +1,9 @@
+#!/bin/bash
+
+. /usr/sbin/meta.env
+
+if [ "$1" == "-v" ];then
+    render-template .template/readme.md.tpl
+else
+    render-template .template/readme.md.tpl > README.md
+fi

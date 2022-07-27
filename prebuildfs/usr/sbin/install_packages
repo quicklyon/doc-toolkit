@@ -1,6 +1,13 @@
 #!/bin/sh
 set -e
 set -u
+
+# change repo url
+MIRROR=${MIRROR:-false}
+if [ "$MIRROR" = "true" ];then
+    sed -i -r 's/(deb|security).debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
+fi
+
 export DEBIAN_FRONTEND=noninteractive
 n=0
 max=2

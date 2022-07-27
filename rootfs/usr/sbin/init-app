@@ -1,0 +1,70 @@
+#!/bin/bash
+
+. /opt/easysoft/scripts/liblog.sh
+. /opt/easysoft/scripts/libfs.sh
+
+copy_dir(){
+    local src=${1:?src dir error}
+    local dst=${2:?dst dir error}
+
+    info " Prepare [ $dst ] directory"
+    if [ ! -d $dst ];then
+        cp -rp $src $dst || error "Directory $dst initialization failed!"
+        sleep 1
+    else
+        warn " [ $dst ] already exists, skip initialization."
+    fi
+}
+
+render_file(){
+    local src=${1:?src file error}
+    local dst=${2:?dst file error}
+
+    info " Render [ $dst ] file"
+    if [ ! -f $dst ];then
+        render-template $src > $dst || error "Render $dst file failed!"
+        sleep 1
+    else
+        warn " [ $dst ] already exists, skip initialization."
+    fi
+}
+
+info "+ Copy template directorys ..."
+copy_dir "/templates/.github" "./.github"
+copy_dir "/templates/.template" "./.template"
+
+# Read app.json and docs template
+. /usr/sbin/meta.env
+
+if [[ "$APP_DOCKER_IMAGE_OS_NAME" =~ alpine ]];then
+    [ ! -d alpine ] && mkdir -p alpine
+    FS_BASE=alpine
+else
+    [ ! -d debian ] && mkdir -p debian
+    FS_BASE=debian
+fi
+
+copy_dir "/templates/prebuildfs" "./${FS_BASE}/prebuildfs"
+
+copy_dir "/templates/rootfs" "./${FS_BASE}/rootfs"
+
+
+# ====== render files =====
+
+info "+ Render templates..."
+info " Render github workflows config file [docker.yml]"
+sed -i "s/__APP_DOCKER_IMAGE_NAME__/$app_name/g" .github/workflows/docker.yml || error "Render docker.yml file failed!"
+
+render_file "/templates/VERSION.tpl" "VERSION"
+
+render_file "/templates/Dockerfile.tpl" "Dockerfile"
+
+render_file "/templates/docker-compose.yml.tpl" "docker-compose.yml"
+
+render_file "/templates/Makefile.tpl" "Makefile"
+
+info " Preview Render [README.md] based on [document template files]"
+render-readme -v || error "Render README.md file failed!"
+render-readme || error "Render README.md file failed!"
+
+info "🎉恭喜🎉 $APP_NAME initialization is complete !"
