@@ -1,15 +1,19 @@
 # QuickOn 应用工具箱
 
+![GitHub Workflow Status (event)](https://img.shields.io/github/workflow/status/quicklyon/template-toolkit/build?style=flat-square)
+![Docker Pulls](https://img.shields.io/docker/pulls/easysoft/template-toolkit?style=flat-square)
+![Docker Image Size](https://img.shields.io/docker/image-size/easysoft/template-toolkit?style=flat-square)
+![GitHub tag](https://img.shields.io/github/v/tag/quicklyon/template-toolkit?style=flat-square)
+
 通过该工具，可以快速生成QuickOn规范的应用，并提供了应用维护的工具。
 
 ## 一、安装工具箱命令
 
 ```bash
-docker run --rm -v /usr/local/:/quickon easysoft/template-toolkit install
+docker run --rm -v /usr/local:/quickon easysoft/template-toolkit install
 ```
 
 执行安装后，会将一些列工具安装在本机的 `/usr/local/sbin` 目录下，以 `q-*` 开头的脚本文件。
-
 
 ## 二、初始化应用镜像源码
 
@@ -18,6 +22,7 @@ docker run --rm -v /usr/local/:/quickon easysoft/template-toolkit install
 ```bash
 mkdir demo-docker
 cd demo-docker
+# q-init-json <应用名称> <镜像版本可省缺,默认debian-11,可选apline>
 q-init-json "ZenTao" "debian-11"
 ```
 
