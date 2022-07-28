@@ -7,7 +7,7 @@
 ```bash
 mkdir demo-docker
 cd demo-docker
-docker run --rm -v $PWD:/quickon easysoft/template-toolkit init-json "ZenTao"
+docker run --rm -v $PWD:/quickon easysoft/template-toolkit init-json "ZenTao" "debian-11"
 ```
 
 执行完命令后，会在当前目录生成 `app.json` 文件，这个文件需要根据具体的应用来修改，如下是示例修改的内容：
@@ -30,7 +30,7 @@ docker run --rm -v $PWD:/quickon easysoft/template-toolkit init-json "ZenTao"
 >
 > - init-json 命令支持2个参数：
 >   - 参数1: 应用名称
->   - 参数2: 镜像系统(默认debian11)
+>   - 参数2: 镜像系统，目前支持  `debian-11` 和 `alpine`
 
 ## 第二步：生产应用模板文件
 
