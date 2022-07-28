@@ -132,7 +132,7 @@ cd charts
 q-add-changelog <应用名称> <维护人>
 
 # 示例
-docker run -it  --rm -v $PWD:/quickon hub.qucheng.com/platform/template-toolkit:20220728 add-changelog 2fauth zhouyq
+q-add-changelog 2fauth zhouyq
 
 ```
 
