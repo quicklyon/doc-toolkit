@@ -1,8 +1,10 @@
-# QuickOn 应用镜像模板工具箱
+# QuickOn 应用工具箱
 
-通过该工具，可以快速生成QuickOn规范的应用镜像模板文件。
+通过该工具，可以快速生成QuickOn规范的应用，并提供了应用维护的工具。
 
-## 第一步：初始化应用元数据
+## 一、初始化应用镜像源码
+
+### 第一步：初始化应用元数据
 
 ```bash
 mkdir demo-docker
@@ -32,7 +34,7 @@ docker run --rm -v $PWD:/quickon easysoft/template-toolkit init-json "ZenTao" "d
 >   - 参数1: 应用名称
 >   - 参数2: 镜像系统，目前支持  `debian-11` 和 `alpine`
 
-## 第二步：生产应用模板文件
+### 第二步：生产应用模板文件
 
 ```bash
 cd demo-docker
@@ -53,7 +55,7 @@ docker run --rm -v $PWD:/quickon easysoft/template-toolkit init-app
  14:41:38.20 INFO  ==>  Preview Render [README.md] based on [document template files]
 ```
 
-## 第三步：完善文档信息
+### 第三步：完善文档信息
 
 文档模板目录是 `.template` 目录结构:
 
@@ -70,7 +72,7 @@ docker run --rm -v $PWD:/quickon easysoft/template-toolkit init-app
 
 ```
 
-### 3.1 根据参数生成标签文档
+#### 3.1 根据参数生成标签文档
 
 前提：应用模板目录(.template)必须包含 `support-tags.md` 文件，如果没有则新建。
 
@@ -95,7 +97,7 @@ docker run --rm -v <应用源码根目录>:/quickon easysoft/template-toolkit ad
 - [0.12.9](https://github.com/gogs/gogs/releases/tag/v0.12.9)
 ```
 
-### 3.2 根据模板渲染readme.md文件
+#### 3.2 根据模板渲染readme.md文件
 
 渲染readme.md文件
 
@@ -106,3 +108,24 @@ docker run --rm -v <应用源码根目录>:/quickon easysoft/template-toolkit re
 **说明：**
 
 - 执行上面的命令后，会根据应用源码根目录的模板文件生成Markdown格式的readme.md文档，打印到标准输出。
+
+## 二、Chart包维护
+
+### 为Chart包添加changelog信息
+
+```bash
+cd charts
+
+docker run --rm -v $PWD:/quickon easysoft/template-toolkit add-changelog <应用名称> <维护人>
+
+```
+
+### 发布应用
+
+```bash
+cd charts
+docker run --rm -v $PWD:/quickon easysoft/template-toolkit release-app <channel-name> <app-name>
+```
+> 注意：
+>
+> - channel-name: `test` 或 `stable`
