@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -x
-
 Channel=$1
 AppName=$2
 
