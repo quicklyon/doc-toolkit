@@ -2,14 +2,23 @@
 
 通过该工具，可以快速生成QuickOn规范的应用，并提供了应用维护的工具。
 
-## 一、初始化应用镜像源码
+## 一、安装工具箱命令
+
+```bash
+docker run --rm -v /usr/local/:/quickon easysoft/template-toolkit install
+```
+
+执行安装后，会将一些列工具安装在本机的 `/usr/local/sbin` 目录下，以 `q-*` 开头的脚本文件。
+
+
+## 二、初始化应用镜像源码
 
 ### 第一步：初始化应用元数据
 
 ```bash
 mkdir demo-docker
 cd demo-docker
-docker run --rm -v $PWD:/quickon easysoft/template-toolkit init-json "ZenTao" "debian-11"
+q-init-json "ZenTao" "debian-11"
 ```
 
 执行完命令后，会在当前目录生成 `app.json` 文件，这个文件需要根据具体的应用来修改，如下是示例修改的内容：
@@ -38,7 +47,7 @@ docker run --rm -v $PWD:/quickon easysoft/template-toolkit init-json "ZenTao" "d
 
 ```bash
 cd demo-docker
-docker run --rm -v $PWD:/quickon easysoft/template-toolkit init-app
+q-init-app
 
 # 执行命令后，会进行模板初始化的操作，以下是输出内容：
 14:41:29.61 INFO  ==> + Copy template directorys ...
@@ -79,7 +88,7 @@ docker run --rm -v $PWD:/quickon easysoft/template-toolkit init-app
 根据版本，URL信息生产标签的Markdown文档：
 
 ```bash
-docker run --rm -v <应用源码根目录>:/quickon easysoft/template-toolkit add-tag "0.12.9" "https://github.com/gogs/gogs/releases/tag/v0.12.9"
+q-add-tag "0.12.9" "https://github.com/gogs/gogs/releases/tag/v0.12.9"
 ```
 
 这条命令会检查添加的版本号是否已经在  `.template/suport-tags.md` 文件中，如果不存在则新增，新增内容如下：
@@ -99,24 +108,28 @@ docker run --rm -v <应用源码根目录>:/quickon easysoft/template-toolkit ad
 
 #### 3.2 根据模板渲染readme.md文件
 
-渲染readme.md文件
+渲染readme.md文件，打印到标准输出
 
 ```bash
-docker run --rm -v <应用源码根目录>:/quickon easysoft/template-toolkit render-readme -v
+# 标准输出预览
+q-render-readme -v
+
+# 直接覆盖当前目录下的README.md文件
+q-render-readme
 ```
 
 **说明：**
 
 - 执行上面的命令后，会根据应用源码根目录的模板文件生成Markdown格式的readme.md文档，打印到标准输出。
 
-## 二、Chart包维护
+## 三、Chart包维护
 
 ### 为Chart包添加changelog信息
 
 ```bash
 cd charts
 
-docker run --rm -v $PWD:/quickon easysoft/template-toolkit add-changelog <应用名称> <维护人>
+q-add-changelog <应用名称> <维护人>
 
 # 示例
 docker run -it  --rm -v $PWD:/quickon hub.qucheng.com/platform/template-toolkit:20220728 add-changelog 2fauth zhouyq
@@ -127,7 +140,7 @@ docker run -it  --rm -v $PWD:/quickon hub.qucheng.com/platform/template-toolkit:
 
 ```bash
 cd charts
-docker run --rm -v $PWD:/quickon easysoft/template-toolkit release-app <channel-name> <app-name>
+q-release-app <channel-name> <app-name>
 ```
 
 > 注意：
