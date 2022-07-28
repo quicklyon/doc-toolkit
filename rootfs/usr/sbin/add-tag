@@ -9,15 +9,17 @@ if [ "$VERSION" == "NULL" ] || [  "$URL" == "NULL" ];then
   exit 1
 fi
 
-if [ ! -e $TAGFILE ];then
+FIRST_TAG=$(grep -v  "^<" .template/support-tags.md)
+
+if [ "${FIRST_TAG}" == "" ];then
   # Only github url are supported
-  echo "- [latest]($(grep -oE "https://[0-9a-zA-Z.]+/\w+/\w+/release" "$URL"))" >> $TAGFILE
+  echo "- [latest]($(echo "$URL" | grep -oE "https://[0-9a-zA-Z.]+/\w+/\w+/release"))" >> $TAGFILE
 fi
 
 IS_EXISTES=$(grep -c "$VERSION" .template/support-tags.md)
 
 if [ "$IS_EXISTES" == "0" ];then
-    sed -i "2i - [$VERSION]($URL)" .template/support-tags.md
+    sed -i "2a - [$VERSION]($URL)" .template/support-tags.md
 else
     echo "$VERSION is exist,skip add version."
 fi

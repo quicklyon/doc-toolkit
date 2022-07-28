@@ -118,6 +118,9 @@ cd charts
 
 docker run --rm -v $PWD:/quickon easysoft/template-toolkit add-changelog <应用名称> <维护人>
 
+# 示例
+docker run -it  --rm -v $PWD:/quickon hub.qucheng.com/platform/template-toolkit:20220728 add-changelog 2fauth zhouyq
+
 ```
 
 ### 发布应用
@@ -126,6 +129,7 @@ docker run --rm -v $PWD:/quickon easysoft/template-toolkit add-changelog <应用
 cd charts
 docker run --rm -v $PWD:/quickon easysoft/template-toolkit release-app <channel-name> <app-name>
 ```
+
 > 注意：
 >
 > - channel-name: `test` 或 `stable`

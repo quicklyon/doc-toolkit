@@ -1,0 +1,34 @@
+#!/bin/bash
+
+AppName="$1"
+Maintainer="$2"
+ChangeLogFile="apps/$AppName/changelog.md"
+
+if [ "$AppName" == "" ] || [  "$Maintainer" == "" ] ;then
+  echo "You need to specify an application name to record Changelog. Ex. $0 zentao-max zhouyq"
+  exit 1
+fi
+
+if [ ! -e apps/$AppName/Chart.yaml ];then
+  echo "apps/$AppName/Chart.yaml not exist."
+  exit 1
+fi
+
+ChartVersion=$( yq .version apps/$AppName/Chart.yaml)
+DataTime=$(date +'%F %H:%M:%S' )
+
+Title="## $ChartVersion $DataTime by $Maintainer"
+
+if [ ! -e $ChangeLogFile ];then
+  echo "$AppName changelog.md not exist."
+  exit 1
+fi
+
+DuplicateVer=$(grep $ChartVersion $ChangeLogFile)
+
+if [ "$DuplicateVer" != "" ];then
+  echo "Duplicate versions [$ChartVersion] do not need to be modified."
+  exit 0
+fi
+
+sed -i "2 a $Title\n\n\n" $ChangeLogFile && vi +5 $ChangeLogFile

@@ -1,0 +1,38 @@
+#!/bin/bash
+
+Channel=$1
+AppName=$2
+
+if [ "$Channel" == "" ] || [ "$AppName" == "" ] ;then
+  echo "$0 must input channel name and appp name . Ex. $0 test zentao-open"
+  exit 1
+fi
+
+APP_CHART_FILE="./apps/${AppName}/Chart.yaml"
+APP_DIR="./apps/${AppName}"
+
+if [ ! -f $APP_CHART_FILE ];then
+  echo "$APP_CHART_FILE not exists."
+  exit 1
+fi
+
+
+echo -e "\nPublish $AppName to \e[1;31m${Channel}\e[0m"
+printf "%-20s%-15s %-15s %-8s\n" "App Name" "App Version" "Chart Version" "Channel"
+
+if [ "$AppName" == "all" ];then
+
+  for app in $(ls -1 ./apps) 
+  do
+    read appversion chartVersion <<< $(yq  '.appVersion,.version' ./apps/${app}/Chart.yaml | xargs )
+    printf "\e[1;32m%-20s\e[0m%-15s %-15s %-8s..." "$app" "$appversion" "$chartVersion" "$Channel"
+    market-push market -c ./apps/${app} -t $Channel >/dev/null 2>&1 && echo " OK"
+  done
+
+else
+
+  read appversion chartVersion <<< $(yq  '.appVersion,.version' $APP_CHART_FILE | xargs )
+  printf "\e[1;32m%-20s\e[0m%-15s %-15s %-8s..." "$AppName" "$appversion" "$chartVersion" "$Channel"
+  market-push market -c ${APP_DIR} -t $Channel >/dev/null 2>&1 && echo " OK"
+
+fi

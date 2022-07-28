@@ -1,0 +1,18 @@
+#!/bin/bash
+
+. /opt/easysoft/scripts/liblog.sh
+. /opt/easysoft/scripts/libfs.sh
+
+copy_dir(){
+    local src=${1:?src dir error}
+    local dst=${2:?dst dir error}
+
+    info " Prepare [ $dst ] directory"
+    cp -rp $src $dst || error "Directory $dst initialization failed!"
+    sleep 1
+}
+
+info "Install template commands ..."
+copy_dir "/templates/sbin" "/quickon" && info "🎉恭喜🎉 commands installation complete!"
+
+cd /quickon/sbin/ && ls -1 q-*
