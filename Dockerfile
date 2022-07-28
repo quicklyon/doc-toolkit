@@ -25,6 +25,8 @@ RUN . /opt/easysoft/scripts/libcomponent.sh && component_unpack "yq" "4.25.3" --
 # Install market-push
 RUN . /opt/easysoft/scripts/libcomponent.sh && component_unpack "market-push" "0.0.1" --checksum 122c25707ac862b765c21d277ee28ab6df2ee5c5147a1171d192c55de63954c5
 
+# Install helm
+RUN . /opt/easysoft/scripts/libcomponent.sh && component_unpack "helm" "3.8.2" --checksum 89498f9ae484b598ec71565aaf392f9b132ed41e23396058850eb458f13419e0
 
 ARG VERSION
 ENV EASYSOFT_APP_NAME="Document-Toolkit $VERSION"

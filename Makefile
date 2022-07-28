@@ -27,3 +27,5 @@ push-public: ## push 镜像到 hub.docker.com
 	docker push easysoft/$(APP_NAME):$(BUILD_DATE)
 	docker push easysoft/$(APP_NAME):latest
 
+
+push-all: push push-public ## push 镜像到所有仓库
