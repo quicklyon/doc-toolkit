@@ -1,6 +1,13 @@
 {{WARNING}}
 # QuickOn {{APP_NAME}} 应用镜像
 
+![GitHub Workflow Status (event)](https://img.shields.io/github/workflow/status/quicklyon/{{APP_NAME}}-docker/build?style=flat-square)
+![Docker Pulls](https://img.shields.io/docker/pulls/easysoft/{{APP_NAME}}?style=flat-square)
+![Docker Image Size](https://img.shields.io/docker/image-size/easysoft/{{APP_NAME}}?style=flat-square)
+![GitHub tag](https://img.shields.io/github/v/tag/quicklyon/{{APP_NAME}}-docker?style=flat-square)
+
+> 申明: 该软件镜像是由QuickOn打包的。在发行中提及的各自商标由各自的公司或个人所有，使用它们并不意味着任何从属关系。
+
 ## 快速参考
 
 - 通过 [渠成软件百宝箱]({{APP_INSTALL_DOC_URL}}) 一键安装 **{{APP_NAME}}**
@@ -31,7 +38,7 @@
 docker pull easysoft/{{APP_DOCKER_IMAGE_NAME}}:latest
 ```
 
-如需使用指定的版本，可以拉取一个包含版本标签的镜像，在Docker Hub仓库中查看 [可用版本列表]({{APP_DOCKER_HUB_TAG_URL}})
+如需使用指定的版本,可以拉取一个包含版本标签的镜像,在Docker Hub仓库中查看 [可用版本列表]({{APP_DOCKER_HUB_TAG_URL}})
 
 ```bash
 docker pull easysoft/{{APP_DOCKER_IMAGE_NAME}}:[TAG]
