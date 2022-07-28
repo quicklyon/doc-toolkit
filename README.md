@@ -79,7 +79,7 @@ docker run --rm -v $PWD:/quickon easysoft/template-toolkit init-app
 根据版本，URL信息生产标签的Markdown文档：
 
 ```bash
-docker run --rm -v <应用源码根目录>:/quickon easysoft/template-toolkit addTag "0.12.9" "https://github.com/gogs/gogs/releases/tag/v0.12.9"
+docker run --rm -v <应用源码根目录>:/quickon easysoft/template-toolkit add-tag "0.12.9" "https://github.com/gogs/gogs/releases/tag/v0.12.9"
 ```
 
 这条命令会检查添加的版本号是否已经在  `.template/suport-tags.md` 文件中，如果不存在则新增，新增内容如下：
