@@ -19,6 +19,8 @@
 
 {{APP_DESC}}
 
+![screenshots](https://github.com/quicklyon/{{app_name}}-docker/raw/master/.template/screenshots.png)
+
 {{APP_NAME}}官网：[{{APP_HOME}}]({{APP_HOME}})
 
 {{APP_EXTRA_INFO}}
@@ -66,7 +68,7 @@ services:
   {{APP_NAME}}:
   ...
     volumes:
-      - /path/to/gogs-persistence:/data
+      - /path/to/persistence:/data
   ...
 ```
 

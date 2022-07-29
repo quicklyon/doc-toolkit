@@ -1,11 +1,11 @@
 #!/bin/sh
-set -e
 set -u
+set -e
 
 # change repo url
 MIRROR=${MIRROR:-false}
 
-if [[ "$OS_NAME" =~ alpine ]];then
+if [ "$OS_NAME" = "alpine" ];then
     if [ "$MIRROR" = "true" ];then
         sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
     fi
@@ -37,6 +37,6 @@ until [ $n -gt $max ]; do
     n=$(($n + 1))
 done
 
-if [[ "$OS_NAME" =~ debian ]];then
+if [ "$OS_NAME" = "debian-11" ];then
     rm -r /var/lib/apt/lists /var/cache/apt/archives
 fi
