@@ -10,7 +10,7 @@ build: ## 国内构建镜像
 
 
 build-public: ## 海外构建镜像
-	docker build --build-arg VERSION=$(BUILD_DATE) -t easysoft/$(APP_NAME):$(BUILD_DATE) -f Dockerfile .
+	docker build --build-arg VERSION=$(BUILD_DATE) --build-arg IS_CHINA="false" -t easysoft/$(APP_NAME):$(BUILD_DATE) -f Dockerfile .
 	docker tag easysoft/$(APP_NAME):$(BUILD_DATE) easysoft/$(APP_NAME):latest
 
 build-all: build build-public ## 构建所有镜像
