@@ -7,6 +7,7 @@ help: ## this help
 build: ## 国内构建镜像
 	docker build --build-arg VERSION=$(BUILD_DATE) --build-arg IS_CHINA="true" -t hub.qucheng.com/platform/$(APP_NAME):$(BUILD_DATE) -f Dockerfile .
 	docker tag hub.qucheng.com/platform/$(APP_NAME):$(BUILD_DATE) hub.qucheng.com/platform/$(APP_NAME)
+	docker tag hub.qucheng.com/platform/$(APP_NAME) easysoft/$(APP_NAME):latest
 
 
 build-public: ## 海外构建镜像

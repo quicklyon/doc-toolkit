@@ -13,7 +13,7 @@ FIRST_TAG=$(grep -v  "^<" .template/support-tags.md)
 
 if [ "${FIRST_TAG}" == "" ];then
   # Only github url are supported
-  echo "- [latest]($(echo "$URL" | grep -oE "https://[0-9a-zA-Z.]+/\w+/\w+/release"))" >> $TAGFILE
+  echo "- [latest]($URL)" >> $TAGFILE
 fi
 
 IS_EXISTES=$(grep -c "$VERSION" .template/support-tags.md)

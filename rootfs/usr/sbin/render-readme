@@ -1,5 +1,7 @@
 #!/bin/bash
 
+[ -n "${DEBUG:+1}" ] && set -x
+
 . /usr/sbin/meta.env
 
 if [ "$1" == "-v" ];then

@@ -6,7 +6,7 @@
 ![Docker Image Size](https://img.shields.io/docker/image-size/easysoft/{{app_name}}?style=flat-square)
 ![GitHub tag](https://img.shields.io/github/v/tag/quicklyon/{{app_name}}-docker?style=flat-square)
 
-> 申明: 该软件镜像是由QuickOn打包的。在发行中提及的各自商标由各自的公司或个人所有，使用它们并不意味着任何从属关系。
+> 申明: 该软件镜像是由QuickOn打包。在发行中提及的各自商标由各自的公司或个人所有，使用它们并不意味着任何从属关系。
 
 ## 快速参考
 
@@ -19,7 +19,7 @@
 
 {{APP_DESC}}
 
-![screenshots](https://github.com/quicklyon/{{app_name}}-docker/raw/master/.template/screenshots.png)
+![screenshots](https://raw.githubusercontent.com/quicklyon/{{app_name}}-docker/main/.template/screenshot.png)
 
 {{APP_NAME}}官网：[{{APP_HOME}}]({{APP_HOME}})
 
@@ -88,8 +88,10 @@ make run
 make ps
 
 # 查看服务日志
-docker-compose logs -f gogs
+docker-compose logs -f {{app_name}}
 
 ```
 
 {{MAKE_EXTRA_INFO}}
+- [VERSION]({{APP_DOCKERFILE_GIT_URL}}/blob/main/VERSION) 文件中详细的定义了Makefile可以操作的版本
+- [docker-compose.yml]({{APP_DOCKERFILE_GIT_URL}}/blob/main/docker-compose.yml)
