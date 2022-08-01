@@ -1,6 +1,6 @@
 # QuickOn 应用工具箱
 
-![GitHub Workflow Status (event)](https://img.shields.io/github/workflow/status/quicklyon/template-toolkit/build?style=flat-square)
+[![GitHub Workflow Status](https://github.com/quicklyon/template-toolkit/actions/workflows/docker.yml/badge.svg)](https://github.com/quicklyon/template-toolkit/actions/workflows/docker.yml)
 ![Docker Pulls](https://img.shields.io/docker/pulls/easysoft/template-toolkit?style=flat-square)
 ![Docker Image Size](https://img.shields.io/docker/image-size/easysoft/template-toolkit?style=flat-square)
 ![GitHub tag](https://img.shields.io/github/v/tag/quicklyon/template-toolkit?style=flat-square)
@@ -86,7 +86,25 @@ q-init-app
 
 ```
 
-#### 3.1 根据参数生成标签文档
+#### 3.1 根据参赛生成镜像Tag文档
+
+根据代码Tag生成镜像tag的Markdown文档：
+
+```bash
+q-release-tag "0.12.9"
+```
+
+这条命令会更新镜像版本号是否已经在  `.template/release-tags.md` 文件中，如果不存在则新增，新增内容如下：
+
+```markdown
+* [`latest`, `0.12.9`](https://github.com/quicklyon/gogs-docker/blob/0.12.9/Dockerfile)
+```
+
+**注意：**
+
+> 需要创建代码的tag版本号
+
+#### 3.2 根据参数生成标签文档
 
 前提：应用模板目录(.template)必须包含 `support-tags.md` 文件，如果没有则新建。
 
@@ -111,7 +129,7 @@ q-add-tag "0.12.9" "https://github.com/gogs/gogs/releases/tag/v0.12.9"
 - [0.12.9](https://github.com/gogs/gogs/releases/tag/v0.12.9)
 ```
 
-#### 3.2 根据模板渲染readme.md文件
+#### 3.3 根据模板渲染readme.md文件
 
 渲染readme.md文件，打印到标准输出
 

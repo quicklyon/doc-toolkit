@@ -1,7 +1,7 @@
 {{WARNING}}
 # QuickOn {{APP_NAME}} 应用镜像
 
-![GitHub Workflow Status (event)](https://img.shields.io/github/workflow/status/quicklyon/{{app_name}}-docker/build?style=flat-square)
+[![GitHub Workflow Status](https://github.com/quicklyon/{{app_name}}/actions/workflows/docker.yml/badge.svg)](https://github.com/quicklyon/{{app_name}}/actions/workflows/docker.yml)
 ![Docker Pulls](https://img.shields.io/docker/pulls/easysoft/{{app_name}}?style=flat-square)
 ![Docker Image Size](https://img.shields.io/docker/image-size/easysoft/{{app_name}}?style=flat-square)
 ![GitHub tag](https://img.shields.io/github/v/tag/quicklyon/{{app_name}}-docker?style=flat-square)
@@ -29,9 +29,9 @@
 
 由于版本比较多,这里只列出最新的5个版本,更详细的版本列表请参考:[可用版本列表]({{APP_DOCKER_HUB_TAG_URL}})
 
-{{SUPPORT_TAGS}}
-
 ## 三、获取镜像
+
+{{APP_DOCKER_TAG}}
 
 推荐从 [Docker Hub Registry]({{APP_DOCKER_HUB_URL}}) 拉取我们构建好的官方Docker镜像。
 

@@ -6,7 +6,7 @@ export OS_NAME=${2:-debian-11}
 
 case $OS_NAME in
     "debian-11")
-        export IMAGE_OS_NAME="debian:11.4-slim"
+        export IMAGE_OS_NAME="easysoft/debian:11"
         ;;
     "alpine")
         export IMAGE_OS_NAME="alpine:3.15"

@@ -1,9 +1,5 @@
 version: '2'
 
-networks:
-  net:
-    driver: bridge
-
 services:
   mysql:
     image: mysql:5.7
@@ -19,7 +15,7 @@ services:
       - net
 
   {{app_name}}:
-    image: hub.qucheng.com/app/{{app_name}}:${TAG}
+    image: hub.qucheng.com/app/{{app_name}}:${TAG:-latest}
     container_name: {{app_name}}
     ports:
       - '8080:80'
@@ -37,6 +33,10 @@ services:
       - IS_CONTAINER=true
     networks:
       - net
+
+networks:
+  net:
+    driver: bridge
 
 # persistence
 volumes:
