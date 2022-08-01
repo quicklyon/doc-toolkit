@@ -24,4 +24,8 @@ push-public: ## push 镜像到 hub.docker.com
 	docker push easysoft/$(APP_NAME):$(BUILD_DATE)
 	docker push easysoft/$(APP_NAME):latest
 
+push-sync-tcr: push-public ## 同步到腾讯镜像仓库
+	curl http://i.haogs.cn:3839/sync?image=easysoft/$(APP_NAME):$(BUILD_DATE)
+	curl http://i.haogs.cn:3839/sync?image=easysoft/$(APP_NAME):latest
+
 push-all: push push-public ## push 镜像到所有仓库

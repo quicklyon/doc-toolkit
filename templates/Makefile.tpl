@@ -21,6 +21,10 @@ push-public: ## push 镜像到 hub.docker.com
 	docker push easysoft/$(APP_NAME):$(TAG)
 	docker push easysoft/$(APP_NAME):latest
 
+push-sync-tcr: push-public ## 同步到腾讯镜像仓库
+	curl http://i.haogs.cn:3839/sync?image=easysoft/$(APP_NAME):$(TAG)
+	curl http://i.haogs.cn:3839/sync?image=easysoft/$(APP_NAME):latest
+
 run: ## 运行
 	export TAG=$(TAG) ;docker-compose -f docker-compose.yml up -d
 
