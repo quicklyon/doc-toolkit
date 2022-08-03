@@ -23,7 +23,7 @@ RUN . /opt/easysoft/scripts/libcomponent.sh && component_unpack "render-template
 RUN . /opt/easysoft/scripts/libcomponent.sh && component_unpack "yq" "4.25.3" --checksum d3e1e504d95c6ba82031474205e963aabd9f7bb9a26f2febb9a4837f1c494545
 
 # Install market-push
-RUN . /opt/easysoft/scripts/libcomponent.sh && component_unpack "market-push" "0.0.1" --checksum 122c25707ac862b765c21d277ee28ab6df2ee5c5147a1171d192c55de63954c5
+RUN . /opt/easysoft/scripts/libcomponent.sh && component_unpack "market-push" "0.1.0" --checksum 7ad8dad1fa530464e6606d89413d6680ac650c757cd519d6988d3a6241bdbe62
 
 # Install helm
 RUN . /opt/easysoft/scripts/libcomponent.sh && component_unpack "helm" "3.8.2" --checksum 89498f9ae484b598ec71565aaf392f9b132ed41e23396058850eb458f13419e0
