@@ -1,7 +1,7 @@
 {{WARNING}}
 # QuickOn {{APP_NAME}} 应用镜像
 
-[![GitHub Workflow Status](https://github.com/quicklyon/{{app_name}}/actions/workflows/docker.yml/badge.svg)](https://github.com/quicklyon/{{app_name}}/actions/workflows/docker.yml)
+[![GitHub Workflow Status](https://github.com/quicklyon/{{app_name}}-docker/actions/workflows/docker.yml/badge.svg)](https://github.com/quicklyon/{{app_name}}/actions/workflows/docker.yml)
 ![Docker Pulls](https://img.shields.io/docker/pulls/easysoft/{{app_name}}?style=flat-square)
 ![Docker Image Size](https://img.shields.io/docker/image-size/easysoft/{{app_name}}?style=flat-square)
 ![GitHub tag](https://img.shields.io/github/v/tag/quicklyon/{{app_name}}-docker?style=flat-square)
@@ -19,7 +19,7 @@
 
 {{APP_DESC}}
 
-![screenshots](https://raw.githubusercontent.com/quicklyon/{{app_name}}-docker/main/.template/screenshot.png)
+![screenshots](https://raw.githubusercontent.com/quicklyon/{{app_name}}-docker/master/.template/screenshot.png)
 
 {{APP_NAME}}官网：[{{APP_HOME}}]({{APP_HOME}})
 
@@ -93,5 +93,5 @@ docker-compose logs -f {{app_name}}
 ```
 
 {{MAKE_EXTRA_INFO}}
-- [VERSION]({{APP_DOCKERFILE_GIT_URL}}/blob/main/VERSION) 文件中详细的定义了Makefile可以操作的版本
-- [docker-compose.yml]({{APP_DOCKERFILE_GIT_URL}}/blob/main/docker-compose.yml)
+- [VERSION]({{APP_DOCKERFILE_GIT_URL}}/blob/master/VERSION) 文件中详细的定义了Makefile可以操作的版本
+- [docker-compose.yml]({{APP_DOCKERFILE_GIT_URL}}/blob/master/docker-compose.yml)

@@ -15,5 +15,5 @@ IS_EXISTES=$(grep -c "$TAGS" $TAGFILE)
 if [ "$IS_EXISTES" == "0" ];then
   echo "* [\`latest\`, \`$TAGS\`](https://github.com/quicklyon/$app_name-docker/blob/${TAGS}/Dockerfile)" > $TAGFILE
 else
-    echo "$TAGS is exist,skip update."
+  echo "$TAGS is exist,skip update."
 fi

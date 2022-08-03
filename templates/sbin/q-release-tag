@@ -1,3 +1,9 @@
 #!/bin/bash
 
+echo "gen tag $1"
 docker run --rm -v $PWD:/quickon easysoft/template-toolkit release-tag $@
+
+echo "gen readme"
+q-render-readme
+
+echo -e "create git tag $1 follow step: \n\n\t1. git add .\n\t2. git commit -m \"release $1\"\n\t3. git tag -a $1 -m \"release $1\""
