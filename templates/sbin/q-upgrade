@@ -1,0 +1,5 @@
+#!/bin/bash
+
+docker pull easysoft/template-toolkit
+
+docker run --rm -v /usr/local:/quickon easysoft/template-toolkit install
