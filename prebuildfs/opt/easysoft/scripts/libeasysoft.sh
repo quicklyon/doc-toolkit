@@ -40,12 +40,12 @@ print_welcome_page() {
 #   None
 #########################
 print_image_welcome_page() {
-    local github_url="https://${HOME_PAGE:-www.zentao.net}"
+    local github_url="${HOME_PAGE:-https://www.zentao.net}"
 
     log ""
     log "${BOLD}Welcome to the Easysoft ${EASYSOFT_APP_NAME} container${RESET}"
     log "Subscribe to project updates by watching ${BOLD}${github_url}${RESET}"
-    log "Submit issues and feature requests at ${BOLD}https://${HOME_PAGE:-www.zentao.net}/ask.html${RESET}"
+    log "Submit issues and feature requests at ${BOLD}${HOME_PAGE:-https://www.zentao.net}/ask.html${RESET}"
     log ""
 }
 
