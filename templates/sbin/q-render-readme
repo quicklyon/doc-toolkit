@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ -n "$DEBUG" ];then
-docker run --rm -e DEBUG=1 -v $PWD:/quickon easysoft/template-toolkit render-readme $@
+docker run --rm -e DEBUG=1 -v "$PWD":/quickon easysoft/template-toolkit render-readme "$@"
 fi
 
-docker run --rm -v $PWD:/quickon easysoft/template-toolkit render-readme $@
+docker run --rm -v "$PWD":/quickon easysoft/template-toolkit render-readme "$@"

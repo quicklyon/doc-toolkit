@@ -1,4 +1,4 @@
 #!/bin/bash
 
-docker run --rm -v $PWD:/quickon easysoft/template-toolkit init-app
+docker run --rm -v "$PWD":/quickon easysoft/template-toolkit init-app
 

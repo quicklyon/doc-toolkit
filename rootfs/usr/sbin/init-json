@@ -1,7 +1,9 @@
 #!/bin/bash
+# shellcheck disable=SC1091
 
 export APP_NAME=$1
-export app_name=$(echo $APP_NAME |tr 'A-Z' 'a-z')
+app_name=$(echo "$APP_NAME" | tr '[:upper:]' '[:lower:]' )
+export app_name
 export OS_NAME=${2:-debian-11}
 
 case $OS_NAME in

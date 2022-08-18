@@ -5,6 +5,7 @@
     "Maintainer": "maintainer maintainer@email.com",
     "GitUrl": "https://github.com/<organization>/<app>",
     "DockerfileUrl": "https://github.com/quicklyon/{{app_name}}-docker",
+    "DockerfileRepoBranch":"{{REPO_BRANCH}}",
     "InstallDocUrl": "https://www.qucheng.com/app-install/install-{{app_name}}-<number>.html",
     "Docker": {
         "Name": "{{app_name}}",

@@ -22,8 +22,9 @@ printf "%-20s%-15s %-15s %-8s\n" "App Name" "App Version" "Chart Version" "Chann
 
 if [ "$AppName" == "all" ];then
 
-  for app in $(ls -1 ./apps) 
+  for app in $(ls -1 ./apps)
   do
+    [[ -e "$app" ]] || break
     read appversion chartVersion <<< $(yq  '.appVersion,.version' ./apps/${app}/Chart.yaml | xargs )
     printf "\e[1;32m%-20s\e[0m%-15s %-15s %-8s..." "$app" "$appversion" "$chartVersion" "$Channel"
     market-push market -c ./apps/${app} -t $Channel >/dev/null 2>&1 && echo " OK"

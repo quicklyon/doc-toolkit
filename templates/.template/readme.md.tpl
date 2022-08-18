@@ -19,7 +19,7 @@
 
 {{APP_DESC}}
 
-![screenshots](https://raw.githubusercontent.com/quicklyon/{{app_name}}-docker/master/.template/screenshot.png)
+![screenshots](https://raw.githubusercontent.com/quicklyon/{{app_name}}-docker/{{REPO_BRANCH}}/.template/screenshot.png)
 
 {{APP_NAME}}官网：[{{APP_HOME}}]({{APP_HOME}})
 
@@ -93,5 +93,9 @@ docker-compose logs -f {{app_name}}
 ```
 
 {{MAKE_EXTRA_INFO}}
-- [VERSION]({{APP_DOCKERFILE_GIT_URL}}/blob/master/VERSION) 文件中详细的定义了Makefile可以操作的版本
-- [docker-compose.yml]({{APP_DOCKERFILE_GIT_URL}}/blob/master/docker-compose.yml)
+- [VERSION]({{APP_DOCKERFILE_GIT_URL}}/blob/{{REPO_BRANCH}}/VERSION) 文件中详细的定义了Makefile可以操作的版本
+- [docker-compose.yml]({{APP_DOCKERFILE_GIT_URL}}/blob/{{REPO_BRANCH}}/docker-compose.yml)
+
+## 七、版本升级
+
+{{APP_UPDATE}}

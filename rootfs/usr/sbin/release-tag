@@ -1,4 +1,5 @@
 #!/bin/bash
+# shellcheck disable=SC1091
 
 TAGS="${1:-NULL}"
 TAGFILE=".template/release-tags.md"
