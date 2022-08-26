@@ -56,7 +56,7 @@ copy_dir "/templates/prebuildfs" "./${FS_BASE}/prebuildfs"
 
 copy_dir "/templates/rootfs" "./${FS_BASE}/rootfs"
 
-copy_dir "/templates/hack" "./${FS_BASE}/hack"
+copy_dir "/templates/hack" "./hack"
 
 
 # ====== render files =====
