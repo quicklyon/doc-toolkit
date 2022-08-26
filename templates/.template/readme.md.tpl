@@ -29,9 +29,9 @@
 
 由于版本比较多,这里只列出最新的5个版本,更详细的版本列表请参考:[可用版本列表]({{APP_DOCKER_HUB_TAG_URL}})
 
-## 三、获取镜像
-
 {{APP_DOCKER_TAG}}
+
+## 三、获取镜像
 
 推荐从 [Docker Hub Registry]({{APP_DOCKER_HUB_URL}}) 拉取我们构建好的官方Docker镜像。
 

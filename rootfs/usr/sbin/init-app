@@ -4,6 +4,13 @@
 . /opt/easysoft/scripts/liblog.sh
 . /opt/easysoft/scripts/libfs.sh
 
+APP_JSON=app.json
+
+if [ ! -e $APP_JSON ];then
+    error "The $APP_JSON does not exist."
+    exit 1
+fi
+
 copy_dir(){
     local src=${1:?src dir error}
     local dst=${2:?dst dir error}
@@ -48,6 +55,8 @@ fi
 copy_dir "/templates/prebuildfs" "./${FS_BASE}/prebuildfs"
 
 copy_dir "/templates/rootfs" "./${FS_BASE}/rootfs"
+
+copy_dir "/templates/hack" "./${FS_BASE}/hack"
 
 
 # ====== render files =====
