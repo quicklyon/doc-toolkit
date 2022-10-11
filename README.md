@@ -38,8 +38,8 @@ q-init-json "ZenTao" "debian-11"
 -     "GitUrl": "https://github.com/<organization>/<app>",
 +     "GitUrl": "https://github.com/easysoft/zentaopms",
 
--     "InstallDocUrl": "https://www.qucheng.com/app-install/install-zentao-<number>.html",
-+     "InstallDocUrl": "https://www.qucheng.com/app-install/install-zentao-1231.html",
+-     "InstallDocUrl": "https://www.qucheng.com/app-install/zentao-install-<number>.html",
++     "InstallDocUrl": "https://www.qucheng.com/app-install/zentao-install-1231.html",
 ```
 
 > **说明**

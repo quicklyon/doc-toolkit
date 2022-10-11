@@ -6,7 +6,7 @@
     "GitUrl": "https://github.com/<organization>/<app>",
     "DockerfileUrl": "https://github.com/quicklyon/{{app_name}}-docker",
     "DockerfileRepoBranch":"master",
-    "InstallDocUrl": "https://www.qucheng.com/app-install/install-{{app_name}}-<number>.html",
+    "InstallDocUrl": "https://www.qucheng.com/app-install/{{app_name}}-install-<number>.html",
     "Docker": {
         "Name": "{{app_name}}",
         "OS": "{{OS_NAME}}",
