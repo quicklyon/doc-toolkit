@@ -13,7 +13,7 @@
 docker run --rm -v /usr/local:/quickon easysoft/template-toolkit install
 ```
 
-执行安装后，会将一些列工具安装在本机的 `/usr/local/sbin` 目录下，以 `q-*` 开头的脚本文件。
+执行安装后，会将一些工具安装至本机的 `/usr/local/sbin` 目录下，主要以 `q-*` 开头的脚本文件为主。
 
 ## 二、初始化应用镜像源码
 
